@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Source+Code+Pro');
+@font-face {
+    font-family: 'Center-City';
+    src:url('CenterCity-Regular.otf');
+}
+
+#hero {
+    height: 90vh;
+}
+
+#liberty-bell {
+    height: 90vh;
+}
+
+#liberty-bell > img {
+    width: 100vw;
+    opacity: 0.1;
+}
+
+#overlay > h1 {
+    font-size: 50pt;
+}
+
+#philly-map {
+    width: 500px;
+    margin-left: 50vw;
+    margin-top: -260px;
+}
+
+#word-picture {
+    width: 100vw;
+    overflow-wrap: break-word;
+    margin-top: -90vh;
+    height: 90vh;
+    overflow-y: hidden;
+    background: white;
+    background: linear-gradient(0deg, rgba(255,255,255,0.01) 0%, rgba(0,212,255,0.2) 15%);
+}
+
+#overlay {
+    height: 50vh;
+    width: 100vw;
+    margin-top: -90vh;
+    padding-top: 30vh;
+    padding-left: 10vw;
+    font-family: 'Center-City', serif;
+    z-index: 1;
+}
+
+h3 {
+    font-family: 'Center-City', serif;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+    margin: 0px;
+}
+
+#information, #tool > h3, #tool > p, #phillyscript > h3, #phillyscript > p, .cozy {
+    margin-top: 2em;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.bulletpoints {
+    margin-left: 24px;
+    font-size: 10pt;
+}
+
+#information, .c2 {
+    column-count: 2;
+}
+
+ul.glossary {
+    font-size: 10pt;
+    column-count: 2;
+}
+
+#information > p {
+    -webkit-margin-before: 0px;
+}
+
+#tool, #phillyscript {
+    min-height: 80vh;
+}
+
+.sidebyside {
+    border: solid 1px #555;
+    height: 300px;
+    padding-left: 4px;
+    padding-top: 4px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+    overflow-y: scroll;
+}
+
+@media (min-width: 800px) {
+    .sidebyside {
+        width: 45vw;
+        display: inline-block;
+    }
+    ul.glossary {
+        column-count: 3;
+    }
+}
+
+#tool-sample {
+    background-color: #efefef;
+    border: none;
+    padding: 6px;
+    margin: 6px;
+    border-radius: 20px;
+    border: solid 1px #555;
+    text-transform: uppercase;
+    font-size: 10pt;
+    transition: 0.5s all;
+}
+
+#tool-sample:hover {
+    background-color: #ddd;
+    box-shadow: black 0px 0px 4px 0px;
+}
+
+#phillyscript-input, #phillyscript-output {
+    font-family: 'Source Code Pro', monospace;
+}
+
+footer {
+    margin-top: 8em;
+    background-color: #efefef;
+    border-radius: 8px;
+    margin-left: -10px;
+    padding-left: 24px;
+    width: 100vw;
+    min-height: 30px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
