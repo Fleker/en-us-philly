@@ -1,7 +1,7 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
-        <title>en-NJ: IETF dialect proposal</title>
+        <title>Phillyscript</title>
         <style>
             pre {
                 margin-left: 40px;
@@ -72,7 +72,7 @@
             </div>
         </div>
 
-        <pre style='margin-top:-2vh; column-count:1; border: solid 1px #999; background-color: #eee;'>
+        <pre style='margin-top:-1vh; column-count:1; border: solid 1px #999; background-color: #eee;'>
     boul Animal {
         new(legs) {
             youse.legs := legs || 2;
@@ -494,6 +494,10 @@ jawn* c := 21
                 is both true and false. It only becomes one of the two once the variable is observed, such as
                 if it is printed or used in a conditional.
             </p>
+            <p>
+                This can be a standalone keyword, but it can also be a weighted maybe by providing a weight
+                as a float in parenthesis after the maybe. 
+            </p>
             <pre>
 jawn* cat := maybe
 if (cat) {
@@ -501,6 +505,14 @@ if (cat) {
 } else {
     :) Sometimes this is false
 }
+
+jawn* weight := maybe(0.8)
+if (weight) {
+    :) Usually this is true
+} else {
+    :) Usually this is false
+}
+
             </pre>
 
             <h5 class='cozy'>Logging</h5>

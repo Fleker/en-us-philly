@@ -179,8 +179,12 @@ const compile = (input, toPs) => {
 
         // Misc
         code = code.replace(/haha, yeah/gm, '');
-        code = code.replace(/= maybe/gm, '= (Math.random() > 0.5)');
-        code = code.replace(/\((.*)maybe(.*)\)/gm, '($1(Math.random() > 0.5)$2)');
+        code = code.replace(/= maybe\(([\d.]*)\)/gm, '= (Math.random() < $1)');
+        code = code.replace(/= maybe\(\)/gm, '= (Math.random() < 0.5)');
+        code = code.replace(/= maybe/gm, '= (Math.random() < 0.5)');
+        code = code.replace(/\((.*)maybe\(([\d.]*)\)(.*)\)/gm, '($1(Math.random() < $2)$3)');
+        code = code.replace(/\((.*)maybe\(\)(.*)\)/gm, '($1(Math.random() < 0.5)$2)');
+        code = code.replace(/\((.*)maybe(.*)\)/gm, '($1(Math.random() < 0.5)$2)');
     }
 
     return code.trim();
