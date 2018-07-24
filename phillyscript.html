@@ -1,0 +1,631 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>en-NJ: IETF dialect proposal</title>
+        <style>
+            pre {
+                margin-left: 40px;
+                border: solid 1px #eee;
+                width: 40em;
+                padding-left: 8px;
+                padding-top: 8px;
+            }
+
+            h6 {
+                text-transform: uppercase;
+                margin-left: 30px;
+            }
+
+            #console {
+                padding-left: 30px;
+                position: sticky;
+                top: 75vh;
+                width: calc(48vw - 30px);
+            }
+
+            #console-text {
+                font-family: monospace;
+                font-size: 10pt;
+                border: solid 1px #efefef;
+                padding: 4px;
+                margin-top: 8px;
+                height: calc(25vh - 30px);
+                overflow-y: auto;
+            }
+
+            #phillyscript-output, #phillyscript-input {
+                position: sticky;
+                top: 0;
+                height: 75vh;
+                width: 48vw;
+                display: inline-block;
+                font-family: monospace;
+                padding: 8px;
+                background-color: #f9f9f9;
+                overflow-y: auto;
+            }
+
+            #phillyscript-output {
+                border: solid 1px #09f;
+            }
+
+            #phillyscript-input {
+                display: none;
+                left: 50vw;
+            }
+
+            #guide > pre, #guide > h4, #guide > h5, #guide > h6, #guide > p, #guide > ul {
+                margin-left: 50vw;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='hero'>
+            <div id='liberty-bell'>
+                <!-- https://www.nps.gov/inde/planyourvisit/libertybellcenter.htm -->
+                <img src='liberty-bell.jpg' />
+            </div>
+            <div id='word-picture'></div>
+            <div id='overlay'>
+                <h1>PHILLYSCRIPT</h1>
+                <img src='philly-map.png' id='philly-map' />
+            </div>
+        </div>
+
+        <pre style='margin-top:-2vh; column-count:1; border: solid 1px #999; background-color: #eee;'>
+    boul Animal {
+        new(legs) {
+            youse.legs := legs || 2;
+        }
+    }
+
+    boul Dog <- Animal {
+        new() {
+            super(4);
+        }
+    }
+
+    jawn* foo := new Animal(2);
+    jawn a := jawns(1,2,3,4);
+    if (a.witout(5)) {
+        JAWN b := 'hello';
+    } else if (a.whereyat(1) === 0) {
+        JAWN b := 'world';
+    }
+            
+    if (foo.legs === 2) {
+        :) Human
+    } else if (foo.legs !== 4) {
+        :| Does not have 2 or 4 legs
+    }
+        </pre>
+
+        <div id='information'>
+            <p>
+                PhillyScript is a project that is meant to create a programming language that reflects
+                the vernacular used by the people of Philadelphia. Additionally, it serves as a way to
+                experiment with new ways to viewing and interacting with programming languages.
+            </p>
+            <p>
+                The goal of PhillyScript is to be highly symbolic, using a number of operators and introducing
+                new ones in order to make the code easier to visualize rather than read as a straight set
+                of words. The goal is to enable developers to write a code flow that can be read quicker.
+                One of the key theories of this language is that concise code is readable code.
+            </p>
+            <p>
+                In order to make sure PhillyScript can run in any environment, it is designed to transpile to
+                JavaScript, enabling it to run in a web browser or other applications on modern operating
+                systems. Much like the word <em>jawn</em>, variables in JavaScript can represent any type
+                dynamically.
+            </p>
+            <p>
+                You can use the editor below to try out PhillyScript for yourself. Then you can view the
+                JavaScript output and copy that into your application. The goal is to have full interop with
+                JavaScript, meaning a developer can slowly port their code to PhillyScript without having to
+                go all at once.
+            </p>
+        </div>
+
+        <div id='phillyscript'>
+            <h4 class='cozy'>Programming Basics</h4>
+            <ul class='cozy bulletpoints'>
+                <li>You don't declare variables with `let` or `const`. Instead you use `jawn` or `jawn*`. This way, there are fewer keywords to memorize.</li>
+                <li>Arrays can be constructed by using `jawns(1,2,3,...)`</li>
+                <li>Instead of using `this`, the keyword `youse` is used</li>
+                <li>The method `includes` is replaced by `wit`. Also, checking the inverse can be done using `witout`.</li>
+                <li>The method `indexOf` is replaced by `whereyat`.</li>
+                <li>Classes are defined with `boul` and are extended by calling `<-`</li>
+            </ul>
+
+            <div id='phillyscript-output' contenteditable="true">
+boul Animal {<br>
+&emsp;new (legs) {<br>
+&emsp;&emsp;youse.legs := legs || 2;<br>
+&emsp;}<br>
+}<br>
+<br>
+boul Dog infam Animal {<br>
+&emsp;new () {<br>
+&emsp;&emsp;super(4);<br>
+&emsp;}<br>
+}<br>
+<br>
+jawn* foo := new Animal(2);<br>
+jawn a := jawns(1,2,3,4);<br>
+if (a.witout(5)) {<br>
+&emsp;jawn* b := 'hello';<br>
+} else if (a.whereyat(1) === 0) {<br>
+&emsp;jawn* b := 'world';<br>
+}<br>
+<br>
+if (foo.legs === 2) {<br>
+&emsp;:) Human<br>
+} else if (foo.legs !== 4) {<br>
+&emsp;:| 'Does not have 2 or 4 legs';<br>
+}<br>
+            </div>
+            <div id='phillyscript-input'></div>
+            <div id='console'>
+                <div>
+                    <button onclick='runcode()'>Run</button>
+                    <button onclick='clearconsole()'>Clear</button>
+                    <button onclick='showpsi()'>Show JavaScript</button>
+                </div>
+                <div id='console-text'></div>
+            </div>
+
+        <div id='guide'>
+            <h4 class='cozy'>API Guide</h4>
+            <h5 class='cozy'>Custom Pipes</h5>
+            <p>
+                Node.js servers are asynchronous, so they are not designed to handle <em>return</em> calls.
+                Instead, you are often passed a callback that you need to run in order to 'end' your function.
+                To reduce boilerplate, PhillyScript introduces custom pipes. These allow a developer to predefine
+                certain functions to run on a string that is represented in backticks.
+            </p>
+            <pre>
+app.get('/', (req, res) => {
+    res.status(200).send('Hello World')
+})
+            </pre>
+
+            <p>This can be simplified like as shown below, with transpiler directives:</p>
+
+            <pre>
+#``res.status(200).send($arg)`
+// ...
+app.get('/', () => {
+    ``Hello World`
+})
+            </pre>
+
+            <p>
+                The transpiler will associate two backticks with your pre-defined function and replace
+                later instances of the usage with your longer callback implementation.
+            </p>
+
+            <h5 class='cozy'>New assignment operator</h5>
+            <p>
+                One of the more common mistakes in programming is having one too few equal signs in a
+                conditional. Instead of checking if <em>foo == bar</em>, you write the assignment
+                <em>foo = bar</em>, which changes the value of foo and returns true always. To alleviate
+                this issue, assignments in PhillyScript use a colon and an equal sign, akin to Go.
+            </p>
+            <p>
+                It's important to note that a standalone equal sign will be removed by the transpiler, causing
+                the resultant code to have syntax errors.
+            </p>
+            <pre>
+jawn foo := 'bar'
+foo := 'bars'
+if (foo == 'bar') {
+    // ...
+}
+            </pre>
+
+            <h5 class='cozy'>Async/Await syntax</h5>
+            <p>
+                The new <em>async</em> and <em>await</em> features of JavaScript are convenient, but also
+                feel shoved into the language for backwards compatibilty. If we could start from scratch, we
+                could introduce some improvements to the way that asynchronous functions are written.
+            </p>
+            <p>
+                Instead of having to prepend every function call with await, you can now append each call
+                with an octothorpe. This cleans up the syntax that you look at while making the appending character
+                notably different from a semicolon.
+            </p>
+            <p>
+                Instead of having to denote each function as <em>async</em>, you can also use the octothorpe to
+                denote that it is asynchronous.
+            </p>
+            <pre>
+fun delayPromise {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve();
+        }, 2000);
+    });
+}
+
+fun# wait {
+    :) calling
+    jawn* result := delayPromise()#
+    :) result
+    // Prints 'calling', then 'result' after a delay
+}
+
+wait()
+            </pre>
+
+            <h5 class='cozy'>Functions</h5>
+            <p>
+                Syntax for functions is slightly easier. In addition to defining async functions faster with
+                the octothorpe, functions can be defined just with <em>fun</em>, because they are fun.
+            </p>
+            <p>
+                There are also a few shortcuts for functions without parameters. Instead of explicitly mentioning
+                that there are zero arguments, you can just define the implementation with curly brackets.
+            </p>
+            <pre>
+fun x {
+    return 0;
+}
+
+const y := {
+    return 0;
+}
+
+fun z(arg1, arg2) {
+    return 0;
+}
+            </pre>
+
+            <h5 class='cozy'>Classes</h5>
+            <h6>Constructors</h6>
+            <p>
+                Constructors are generally unchanged, as you still use the <em>new</em> keyword and then
+                you pass parameters. However, if you are creating an object with the default constructor,
+                which does not have any parameters, you can use a simplified form that includes the
+                <em>@</em> symbol.
+            </p>
+            <pre>
+boul A { }
+jawn* x @ A
+            </pre>
+
+            <h6>Extending classes</h6>
+            <p>
+                Classes are typically based on a superclass with the <em>extends</em> keyword, but in PhillyScript
+                this is replaced by arrow notation.
+            </p>
+            <pre>
+boul A {}
+boul B <- A {}
+jawn* x @ B
+:) ${ x ~ B }
+// Prints true
+:) ${ x ~ A }
+// Prints true
+            </pre>
+
+            <h5 class='cozy'>Symbols (Atoms)</h5>
+            <p>
+                Symbols are a feature of the JavaScript language which enable values that are unique
+                and have a value of their own name. They can be created with the <em>Symbol.for</em> and
+                the <em>Symbol.keyFor</em> methods.
+            </p>
+            <p>
+                To reduce the verbosity and make this feature easier to use, new syntax is added which
+                is inspired from Elixir's <a href='https://elixir-lang.org/getting-started/basic-types.html#atoms'>atoms</a>
+                type.
+            </p>
+            <pre>
+jawn* x := :hello
+// Creates a new symbol of type hello
+:) ${ :x: }
+// Prints the key of the symbol, which is 'hello'
+            </pre>
+
+            <h5 class="cozy">Tilde</h5>
+            <p>
+                The tilde, ~, is a symbol that lives on the keyboard but is rarely used. It appears in
+                a handful of languages like C++ but is otherwise unused. In this language the symbol is used
+                in a number of situations.
+                <ul>
+                    <li>Fuzzy equality for floats</li>
+                    <li>If a class is an instanceof another class</li>
+                    <li>Destroying variables</li>
+                </ul>
+            </p>
+            <p>
+                Float comparison can match two floats that are similar to one another by wrapping the Math.round
+                function:
+            </p>
+            <pre>
+jawn float1 := 4.1;
+jawn float2 := 3.9;
+:) ${ float1 ~~ float2 }
+// Prints true
+            </pre>
+
+            <p>The <em>instanceof</em> method can be simplified with the tilde.</p>
+
+            <pre>
+boul A { }
+boul B <- A { }
+jawn b := new B()
+:) ${ b~B }
+// Prints true
+            </pre>
+
+            <p>The destruction of variables is not often necessary in JavaScript, as there is a garbage collector,
+            but PhillyScript still makes it easier to destroy variables. This is equivalent to the
+            <em>delete</em> command in JavaScript.</p>
+
+            <pre>
+jawn a := jawns(1,2,3);
+:) ${ a[1] }
+// Prints 2
+~a
+:) ${ a[1] }
+// Throws an error
+            </pre>
+
+            <h5 class="cozy">String and array range accessors</h5>
+            <p>
+                The <em>slice</em> method can quickly grab part of a string or an array, but this method
+                can be accessed faster using array accessors, which is inspired from Python's accessors.
+            </p>
+            <pre>
+jawn* a := 'Hello world'
+:) ${ a[2:5] }
+// Prints llo
+jawn* b := jawns(1,2,3,4)
+:) ${ b[1:3] }
+// Prints [2,3]
+            </pre>
+            <p>
+                This also enables you to ignore one of the boundaries to default to either the start
+                or the end of the item if that argument is not included.
+            </p>
+            <pre>
+jawn* a := jawns(0,1,2,3,4,5)
+:) ${ a[:3] }
+// Prints [0,1,2]
+:) ${ a[3:] }
+// Prints [3,4,5]
+            </pre>
+
+            <h5 class='cozy'>Array arithmetic</h5>
+            <p>
+                While you can easily add and multiply individual numbers, you can't do that easily to
+                a whole array of numbers in standard JavaScript. A new language feature is dot or item-iterative
+                arithmetic, which will apply the operation to every item in the array. These operations do not
+                happen in place; they return a new array.
+            </p>
+            <pre>
+jawn* a := jawns(0,1,2,3,4,5)
+:) ${ a .* 5 }
+// Prints [0,5,10,15,20,25]
+:) ${ a .+ 2 }
+// Prints [2,3,4,5,6,7]
+:) ${ a[4:5] .% 3 }
+// Prints 1
+            </pre>
+
+            <h5 class="cozy">Additional math operations</h5>
+            <h6>Integer/Remainder division</h6>
+            <p>
+                In some math applications, you want to do integer divison, where 5/2 is going to result
+                in 2, since you only want the integer part. At the same time, you may want the remainder
+                of that operation. A new math operation, <em>//</em> will return an array with both the
+                integer and the remainder.
+            </p>
+            <pre>
+jawn* result := 5 // 2
+:) ${result}
+// Returns [2, 1]
+            </pre>
+
+            <h6>Factorial</h6>
+            <p>
+                The factorial expression is one in which a number factorial is the product of itself along
+                with every positive integer less than itself. It is not part of the standard JavaScript math
+                library, but it is now a built in feature of the language.
+            </p>
+
+            <pre>
+:) ${ 5! }
+// Prints 120
+            </pre>
+
+            <h6>Magnitude greater than/less than</h6>
+            <p>
+                In math, the sign <em>≫</em> and <em>≪</em> are used for 'much greater-than' and 'much less-than'.
+                Although these inequalities are not features of JavaScript, they have been implemented in this
+                language for easier checking of magnitude. In this specification, a number is said to be
+                much greater-than if it is at least 10 times as large. This can be exclusive with the symbol
+                <em><<</em> or inclusive with the symbol <em><<=</em>.
+            </p>
+            <pre>
+jawn* a := 10
+jawn* b := 100
+jawn* c := 101
+:) ${ c >> a }
+// Prints true
+:) ${ b >>= a }
+// Prints true
+:) ${ a << c }
+// Prints true
+            </pre>
+            <p>
+                A custom magnitude can be specified by inserting the magnitude between the carats.
+            </p>
+            <pre>
+jawn* a := 10
+jawn* b := 20
+jawn* c := 21
+:) ${ a <2< c }
+// Prints true
+:) ${ a <2< b }
+// Prints false
+            </pre>
+
+            <h6>Bit-Shifting</h6>
+            <p>
+                As the double carat sign is now used for much greater-than and much less-than, the bit-shifting
+                operators are now represented by a dot in front of carats.
+            </p>
+            <pre>
+:) ${ 2 .<< 4 }
+// Prints 32
+:) ${ 32 .>> 4 }
+// Prints 2
+            </pre>
+
+            <h5 class='cozy'>Maybe</h5>
+            <p>
+                In our modern world, things are not always black and white. Sometimes the truth is somewhere in
+                the middle. As such, a simple `true`/`false` boolean may not always be what you want. Instead,
+                your data may be one or the other. Like Schrodinger's cat, it may be both at the same time.
+            </p>
+            <p>
+                A third value can be used for a boolean, `maybe`. By assigning a variable to be `maybe`, it
+                is both true and false. It only becomes one of the two once the variable is observed, such as
+                if it is printed or used in a conditional.
+            </p>
+            <pre>
+jawn* cat := maybe
+if (cat) {
+    :) Sometimes this is true
+} else {
+    :) Sometimes this is false
+}
+            </pre>
+
+            <h5 class='cozy'>Logging</h5>
+            <p class='cozy'>
+                Logging is often used for debugging, and sometimes as output in command line applications.
+                The entire command `console.log` doesn't do a great job describing the value of this
+                output. If you're logging normal data, then it's probably a good value. If you log an
+                error, it's a bad value. We can make this code more clear this way.
+            </p>
+            <pre>
+:) Something good happened
+:| Here's a warning
+:( Something bad happened
+            </pre>
+
+            <p class='cozy'>
+                The compiler converts the statements above to console.log, console.warn, and console.error
+                respectively. These statements also support string templates, so you can do:
+            </p>
+            <pre>
+:) Our output is ${output}
+>:( Error: ${error}
+            </pre>
+
+            <h5 class='cozy'>Errors</h5>
+            <p>
+                When you run into a number of errors during programming, you're going to get angry.
+                You can alleviate frustration using the `fak` keyword. Again, this will automatically
+                incorporate string templates for you.
+            </p>
+
+            <pre>
+jawn* cat := true
+if (cat) {
+    >:( Why is this true?
+    fak! this should not be true
+}
+            </pre>
+
+            <h5 class='cozy'>Haha, yeah</h5>
+            <p>
+                Not sure what is happening? You can just insert `haha, yeah` into your scripts. This doesn't
+                do anything, but you can use it as a no-op if you're so inclined.
+            </p>
+            <pre>
+:) haha, yeah
+// Prints nothing
+            </pre>
+        </div>
+        </div>
+
+        <script>
+            window.onload = () => {
+                const words = document.querySelector('#word-picture');
+                const maxOpacity = 40; // 40 percent
+                let wordsHTML = ''
+                for (let i = 0; i < 2000; i++) {
+                    const randomWord = getRandomWord();
+                    const randomOpacity = Math.floor(Math.random() * maxOpacity) / 100;
+                    wordsHTML += `<span style='opacity:${randomOpacity}'>${randomWord}</span>`;
+                }
+                words.innerHTML = wordsHTML;
+                translateScriptToJs();
+            }
+            
+            function translateScriptToPs() {
+                let input = document.querySelector('#phillyscript-input').innerText;
+                const output = compile(input, true);
+                document.querySelector('#phillyscript-output').innerText = output;
+            }
+
+            function translateScriptToJs() {
+                let input = document.querySelector('#phillyscript-output').innerText;
+                const output = compile(input, false);
+                document.querySelector('#phillyscript-input').innerText = output;
+            }
+
+            document.querySelector('#phillyscript-input').oninput = () => {
+                translateScriptToPs();
+            }
+
+            document.querySelector('#phillyscript-output').oninput = () => {
+                translateScriptToJs();
+            }
+
+            const cl = console.log;
+            const cw = console.warn;
+            const ce = console.error;
+
+            function runcode() {
+                console.log = (x) => {
+                    document.getElementById('console-text').innerText += `LOG   ${x}\n`;
+                }
+                console.warn = (x) => {
+                    document.getElementById('console-text').innerText += `WRN   ${x}\n`;
+                }
+                console.error = (x) => {
+                    document.getElementById('console-text').innerText += `ERR   ${x}\n`;
+                }
+                try {
+                    eval(document.getElementById('phillyscript-input').innerText);
+                } catch (e) {
+                    document.getElementById('console-text').innerText += `EXCEPTION   ${e}\n`;
+                }
+            }
+
+            function clearconsole() {
+                document.getElementById('console-text').innerText = '';
+            }
+
+            function showpsi() {
+                const psi = document.getElementById('phillyscript-input');
+                const display = psi.style.display;
+                if (display === 'none' || display === '') {
+                    psi.style.display = 'inline-block';
+                } else {
+                    psi.style.display = 'none';
+                }
+            }
+        </script>
+        <footer>
+            Using the font <a href='http://www.phillyfonts.com/centerCity.html'>Center City by Philly Fonts</a>
+        </footer>
+        <script src='vernacular.js'></script>
+        <script src='translations.js'></script>
+        <script src='phillyscript.js'></script>
+    </body>
+</html>
