@@ -123,6 +123,8 @@ const translate = (input) => {
 
     // fine
     input = input.replace(/happy(\b)/, 'fine$1');
+    input = input.replace(/good(\b)/, 'fine$1');
+    input = input.replace(/great(\b)/, 'fine$1');
     input = input.replace(/sad(\b)/, 'fine$1');
     input = input.replace(/mad(\b)/, 'fine$1');
     input = input.replace(/doing well(\b)/, 'fine$1');
@@ -133,6 +135,10 @@ const translate = (input) => {
     input = input.replace(/No(\b)/, 'Yeah, no$1');
     input = input.replace(/yes(\b)/, 'no, yeah$1');
     input = input.replace(/Yes(\b)/, 'No, yeah$1');
+
+    // mummers
+    input = input.replace(/marching band(\b)/, 'Mummers$1');
+    input = input.replace(/Marching band(\b)/, 'Mummers$1');
 
     return input;
 }

@@ -39,6 +39,9 @@ const phillyVernacular = [
     'turnpike',
     'no, yeah',
     'yeah, no',
+    'liberty bell',
+    'crick',
+    'ya mean',
 ];
 
 const getRandomWord = () => {

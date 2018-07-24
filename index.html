@@ -1,7 +1,7 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
-        <title>en-NJ: IETF dialect proposal</title>
+        <title>en-US-philly: IANA dialect proposal</title>
     </head>
     <body>
         <div id='hero'>
@@ -11,32 +11,37 @@
             </div>
             <div id='word-picture'></div>
             <div id='overlay'>
-                <h1>EN-NJ / EN-PA</h1>
+                <h1>EN-US-PHILLY</h1>
                 <h2>A NEW LOCALE PROPOSAL</h2>
                 <img src='philly-map.png' id='philly-map' />
+                <a href='https://goo.gl/forms/XYlJdoH9qC0BYNLD2' target="_blank">
+                    <button style='position:absolute; left:50vw; top:70vh; font-size: 16pt; background-color: #ba68c8;
+                    border: solid 1px #555;
+                    padding: 4px;
+                    padding-left: 12px;
+                    padding-right: 12px;'>
+                    I agree
+                    </button>
+                </a>
             </div>
         </div>
 
         <div id='information'>
             <p>
-                This website serves as a proposal to introduce a new IETF dialect to
-                the standard, en-NJ (or en-PA), to enable software developers to
-                better provide services to users in New Jersey and Philadelphia.
+                This website serves as a proposal to introduce a new RFC 5646 variant to
+                the standard, <em>en-US-philly</em>, to enable software developers to
+                better provide localized services to users in New Jersey and Philadelphia. While
+                most of these localized services have traditionally been print media, the advent
+                of voice assistants highlights the value of providing auditory responses that
+                better reflect the local culture.
             </p>
 
             <p>
                 The language in this region is unique, with a number of specific
                 words and grammar. As such, standard American English (en-US)
                 does not fully express the actual way that people talk. The goal
-                of these IETF dialects is to better localize language as it is used
-                in software, and this should include the jawns that we say.
-            </p>
-
-            <p>
-                If this proposal is accepted, this new locale should be added to
-                platforms such as web browsers and mobile operating systems as
-                a usable language. Then, applications will be able to include
-                a new set of strings for people in this region.
+                of these standardized dialects is to better localize language as it is used
+                in online tools and media, and this should include the jawns that we say.
             </p>
 
             <p>
@@ -46,22 +51,81 @@
             </p>
 
             <p>
-                Although Philly English is primarily based on American English, there
+                Looking up the specifications for <a href='http://www.rfc-editor.org/rfc/rfc5646.txt'>RFC 5646</a>,
+                which defines the way that dialects are developed, as well as consulting the 
+                <a href='https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry'>IANA Language Subtag Registry</a>,
+                it seems that this dialect would best fit as a new <em>variant</em> subtag that is based on the
+                existing <em>en-US</em> locale.
+            </p>
+
+            <p>
+                As stated in section 3.6 of the RFC 5646, "variations within a language...or distinguishing variation MAY be
+                registered as variant subtags". The contents of this website demonstrate the unique variations of English
+                within Philadelphia, lending support to the idea that this should be considered a standardized variant.
+            </p>
+
+            <p>
+                This variant is being submitted as an entirely new subtag, as it is not defined as an ISO 639 code 
+                nor any code defined in other ISO specifications.
+            </p>
+
+            <p>
+                This website represents a formal intent to register this subtag, and the site is also is meant to collect
+                support from the general public.
+            </p>
+
+            <p>
+                As precedent, there is already submitted the tag <em>en-CA-newfound</em> to represent the
+                500 thousand or so inhabitants of Newfoundland, on the eastern cost of Canada.
+            </p>
+
+            <p>
+                The specific vernacular of the Philadelphia region has been studied in detail by linguists
+                including William Labov, from the University of Pennsylvania. He has written a number of books
+                and academic works that highlight this variant of standard US English.
+            </p>
+
+            <p>
+                Although Philly English is primarily based on US English, there
                 are many words and phrases which are unique to the region. You can
-                learn more in the exploration tool below.
+                learn more in the exploration tool below. This tool does not show specific
+                variations in how words are said in Philadelphia compared to standard US English. 
+            </p>
+
+            <p>
+                As defined in section 3.5 of RFC 5646, a variant subtag can be independently registered by sending
+                an email to the IANA mailing list with the proposed record, as defined below.
             </p>
 
             <p>
                 Some words in this locale have become used enough that they have
                 definitions <a href='https://www.google.com/search?q=jawn' target="_blank">on Google</a>.
-                This further provides justification for helping to keep supporting this culture.
+                This further provides justification for defining Philadelphia as a unique variant of US English.
             </p>
+
             <p>
                 You can read more about this locale in articles such as the <a href='https://www.washingtonpost.com/national/health-science/philadelphians-have-a-unique-accent-with-pronunciation-evolving-over-the-decades/2013/04/29/fcfe7b18-ae74-11e2-98ef-d1072ed3cc27_story.html'>Washington Post</a>.
+                You can learn more about RFC 5646 from <a href='https://www.w3.org/International/articles/language-tags/'>W3C</a>.
+                You can find RFC 5646 tags through <a href='https://r12a.github.io/app-subtags/'>this handy tool</a>. Finally, more references are available at the bottom of this page.
             </p>
         </div>
 
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScthg-oZVuncfFjN23ALWk3gdXUcyXaJmk1gqNTtXXmMQoWEA/viewform?embedded=true" 
+            width="100%" height="550" frameborder="0" marginheight="0" marginwidth="0" style='overflow-y:none; margin-top: 20px;'>
+            Loading...
+        </iframe>
+
         <div id='tool'>
+            <h3><small>PROPOSED</small> IANA <small>RECORD</small></h3>
+            <pre style='margin-left:60px'>
+Type: variant
+Subtag: philly
+Description: Philadelphia dialect of US English
+Added: 2018-xx-xx
+Prefix: en-US
+%%
+            </pre>
+
             <h3>G<small>LOSSARY</small></h3>
             <p class='c2'>
                 <em>Below is a list of common Philadelphia vernacular. It is
@@ -73,13 +137,11 @@
                     <li>fam - Your close friends</li>
                     <li>jimmies - Sprinkles</li>
                     <li>ratchet - Repugnant or disgusting</li>
-                    <li>Wawa - A convenience store that provides coffee and hoagies</li>
                     <li>water ice - A cold drink with flavored syrups, like a snow cone</li>
                     <li>cheesesteak - A food consisting of beefsteak with onions and cheese whiz</li>
                     <li>witout - A cheesesteak without onions</li>
                     <li>boul - A young man</li>
                     <li>ard - Alright</li>
-                    <li>Mummer - A colorfully dressed marching band</li>
                 </ul>
             </p>
 
@@ -91,10 +153,10 @@
                 how to translate strings to this new locale.
             </p>
             <div id='tool-input' class='sidebyside' contenteditable="true">
-                Enter text here...
+                Type text here...
             </div>
             <div id='tool-output' class='sidebyside'>
-                Enter text here...
+                See Philly words here...
             </div>
             <br>
             <button id='tool-sample'>Sample</button>
@@ -107,7 +169,7 @@
                 of JavaScript, to help bring the uniqueness of Philadelphia
                 to programming.
             </p>
-            <pre style='padding-left: 8px; margin-left: 40px; width: 600px; column-count:1; border: solid 1px #999; background-color: #eee;' id='phillyscript-input' contenteditable="false">
+            <pre style='padding-left: 8px; margin-left: 40px; width: 600px; column-count:1; border: solid 1px #999; background-color: #f9f9f9;' id='phillyscript-input' contenteditable="false">
 boul Animal {
     new(legs) {
         youse.legs := legs || 2;
@@ -134,22 +196,67 @@ if (foo.legs === 2) {
     :| Does not have 2 or 4 legs
 }
             </pre>
-            <div style='display:none' id='phillyscript-output' class='sidebyside' contenteditable="true">
-
-            </div>
-
-            <h4 class='cozy'>Programming Basics</h4>
-            <ul class='cozy bulletpoints'>
-                <li>You don't declare variables with `let` or `const`. Instead you use `jawn` or `jawn*`. This way, there are fewer keywords to memorize.</li>
-                <li>Arrays can be constructed by using `jawns(1,2,3,...)`</li>
-                <li>Instead of using `this`, the keyword `youse` is used</li>
-                <li>The method `includes` is replaced by `wit`. Also, checking the inverse can be done using `witout`.</li>
-                <li>The method `indexOf` is replaced by `whereyat`.</li>
-                <li>Classes are defined with `boul` and are extended by calling `<-`</li>
-            </ul>
             <p>
                 You can learn more about PhillyScript, including trying it out for yourself,
                 on the <a href='phillyscript.html'>PhillyScript page</a>.
+            </p>
+
+            <h3>R<small>EFERENCES</small></h3>
+            <p>
+                <ul>
+                    <li>
+                        <a href='https://www.atlasobscura.com/articles/the-enduring-mystery-of-jawn-philadelphias-allpurpose-noun'>The Enduring Mystery Of ‘Jawn’, Philadelphia’s All-Purpose Noun // Atlas Obscura</a>
+                    </li>
+                    <li>
+                        <a href='https://www.merriam-webster.com/words-at-play/jawn-meaning-origin'>Some Jawn about 'Jawn' // Merriam-Webster</a>
+                    </li>
+                    <li>
+                        <a href='https://en.oxforddictionaries.com/definition/jawn'>jawn // Oxford Dictionaries</a>
+                    </li>
+                    <li>
+                        <a href='https://en.wikipedia.org/wiki/Philadelphia_English'>Philadelphia English // Wikipedia</a>
+                    </li>
+                    <li>
+                        <a href='https://books.google.com/books?hl=en&lr=&id=snEEdFKLJ5cC&oi=fnd&pg=PR8&dq=+WILLIAM+LABOV&ots=ALQgv_E8zP&sig=uyxaNks16Di0KjrtAMn0Lq27RrM#v=onepage&q=WILLIAM%20LABOV&f=false'>
+                            Language in the Inner City: Studies in the Black English Vernacular // William Labov
+                        </a>
+                    </li>
+                    <li>
+                        <a href='https://books.google.com/books?hl=en&lr=&id=hD0PNMu8CfQC&oi=fnd&pg=PR10&dq=+WILLIAM+LABOV+philadelphia&ots=1f09zbkot0&sig=0dY9z6x7WDabhMyj4JnUYWzKEsg#v=onepage&q&f=false'>
+                            Sociolinguistic Patterns
+                        </a>
+                    </li>
+                    <li>
+                        <a href='https://www.cambridge.org/core/journals/language-variation-and-change/article/role-of-african-americans-in-philadelphia-sound-change/9685036E424DB63B70D06FF8A66AA67F'>
+                            The role of African Americans in Philadelphia sound change // William Labov
+                        </a>
+                    </li>
+                    <li>
+                        <a href='http://mnytud.arts.unideb.hu/tananyag/szoclingv_alap/wlh.pdf'>
+                            Empirical Foundations for a Theory of Language Change (PDF) // Uriel Weinreich, William Labov, Marvin I. Herzog
+                        </a>
+                    </li>
+                    <li>
+                        <a href='https://digitalcommons.lasalle.edu/cgi/viewcontent.cgi?article=1032&context=honors_projects'>
+                            A Jawn by Any Other Name: A Sociolinguistic Analysis of the Philadelphia Dialect // Ryan Wall
+                        </a>
+                    </li>
+                    <li>
+                        <a href='https://penntoday.upenn.edu/2016-01-21/research/project-penn-linguists-documents-philadelphia-accent-asl'>
+                            Project by Penn linguists documents Philadelphia accent in ASL // Penn Today
+                        </a>
+                    </li>
+                    <li>
+                        <a href='https://temple-news.com/here-its-all-in-the-lingo/'>
+                            Here, it's all in the lingo // The Temple News
+                        </a>
+                    </li>
+                    <li>
+                        <a href='https://h2g2.com/edited_entry/A30501721'>
+                            American Regional Dialects - Philly Talk and Pittsburghese // h2g2
+                        </a>
+                    </li>
+                </ul>
             </p>
         </div>
 
