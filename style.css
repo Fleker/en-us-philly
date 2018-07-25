@@ -165,7 +165,8 @@ footer {
     }
     #philly-map {
         margin-left: 20vw;
-        margin-top: -90px;
+        margin-top: -40px;
+        width: 300px;
     }
     #information, .c2 {
         column-count: 1;
@@ -174,7 +175,7 @@ footer {
         margin-top: -120vh;
     }
     #formbutton {
-        left: inherit;
+        left: 20px;
     }
     ul.glossary {
         column-count: 1;
