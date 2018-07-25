@@ -72,6 +72,18 @@ body {
     column-count: 2;
 }
 
+#formbutton {
+    position:absolute; 
+    left:50vw;
+    top:70vh;
+    font-size: 16pt;
+    background-color: #ba68c8;
+    border: solid 1px #555;
+    padding: 4px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
 ul.glossary {
     font-size: 10pt;
     column-count: 2;
@@ -122,7 +134,7 @@ ul.glossary {
     box-shadow: black 0px 0px 4px 0px;
 }
 
-#phillyscript-input, #phillyscript-output {
+#phillyscript-input, #phillyscript-output, #phillyscript-demo {
     font-family: 'Source Code Pro', monospace;
 }
 
@@ -136,4 +148,39 @@ footer {
     min-height: 30px;
     padding-top: 10px;
     padding-bottom: 20px;
+}
+
+#phillyscript-demo {
+    padding-left: 8px;
+    margin-left: 40px;
+    width: 600px;
+    column-count:1;
+    border: solid 1px #999;
+    background-color: #f9f9f9;
+}
+
+@media (max-width: 800px) {
+    body {
+        overflow-x: hidden;
+    }
+    #philly-map {
+        margin-left: 20vw;
+        margin-top: -90px;
+    }
+    #information, .c2 {
+        column-count: 1;
+    }
+    #overlay {
+        margin-top: -120vh;
+    }
+    #formbutton {
+        left: inherit;
+    }
+    ul.glossary {
+        column-count: 1;
+    }
+    #phillyscript-demo {
+        margin-left: 10px;
+        width: calc(100vw - 20px);
+    }
 }

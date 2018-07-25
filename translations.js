@@ -5,7 +5,6 @@ const getSample = () => {
         'Want to get some sandwiches from Subway?',
         'Wow, I\'m hungry for greasy food.',
         'It was a warm summer afternoon, so we bought snow cones.',
-        'That video was disgusting.',
         'My friends went to the beach this weekend.',
         'I want some parmesan cheese on my pasta.',
         'I\'d like greasy food without onions.',
@@ -58,10 +57,10 @@ const translate = (input) => {
     input = input.replace(/Sprinkles(\b)/, 'Jimmies$1');
 
     // ratchet
-    input = input.replace(/repugnant(\b)/, 'ratchet$1');
-    input = input.replace(/Repugnant(\b)/, 'Ratchet$1');
-    input = input.replace(/disgusting(\b)/, 'ratchet$1');
-    input = input.replace(/Disgusting(\b)/, 'Ratchet$1');
+    // input = input.replace(/repugnant(\b)/, 'ratchet$1');
+    // input = input.replace(/Repugnant(\b)/, 'Ratchet$1');
+    // input = input.replace(/disgusting(\b)/, 'ratchet$1');
+    // input = input.replace(/Disgusting(\b)/, 'Ratchet$1');
 
     // malarkey
     input = input.replace(/nonsense(\b)/, 'malarkey$1');
@@ -135,10 +134,6 @@ const translate = (input) => {
     input = input.replace(/No(\b)/, 'Yeah, no$1');
     input = input.replace(/yes(\b)/, 'no, yeah$1');
     input = input.replace(/Yes(\b)/, 'No, yeah$1');
-
-    // mummers
-    input = input.replace(/marching band(\b)/, 'Mummers$1');
-    input = input.replace(/Marching band(\b)/, 'Mummers$1');
 
     return input;
 }

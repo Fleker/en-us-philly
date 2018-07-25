@@ -2,6 +2,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
         <title>en-US-philly: IANA dialect proposal</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
         <div id='hero'>
@@ -15,11 +16,7 @@
                 <h2>A NEW LOCALE PROPOSAL</h2>
                 <img src='philly-map.png' id='philly-map' />
                 <a href='https://goo.gl/forms/XYlJdoH9qC0BYNLD2' target="_blank">
-                    <button style='position:absolute; left:50vw; top:70vh; font-size: 16pt; background-color: #ba68c8;
-                    border: solid 1px #555;
-                    padding: 4px;
-                    padding-left: 12px;
-                    padding-right: 12px;'>
+                    <button id='formbutton'>
                     I agree
                     </button>
                 </a>
@@ -76,19 +73,24 @@
 
             <p>
                 As precedent, there is already submitted the tag <em>en-CA-newfound</em> to represent the
-                500 thousand or so inhabitants of Newfoundland, on the eastern cost of Canada.
+                500 thousand or so inhabitants of <a href='https://en.wikipedia.org/wiki/Newfoundland_English'>Newfoundland</a>,
+                on the eastern cost of Canada.
             </p>
 
             <p>
                 The specific vernacular of the Philadelphia region has been studied in detail by linguists
                 including William Labov, from the University of Pennsylvania. He has written a number of books
-                and academic works that highlight this variant of standard US English.
+                and academic works that highlight this variant of standard US English. Unlike a simple accent,
+                the variation of Philadelphia English introduces new words into the language and has a
+                number of grammatical differences.
             </p>
 
             <p>
                 Although Philly English is primarily based on US English, there
-                are many words and phrases which are unique to the region. You can
-                learn more in the exploration tool below. This tool does not show specific
+                are many words and phrases which are unique to the region. It was developed by
+                a diverse group of inhabitants, creating a unique blend of African American Vernacular English
+                along with influnces from European populations like the Irish, Italian, and German immigrants.
+                You can learn more in the exploration tool below. This tool does not show specific
                 variations in how words are said in Philadelphia compared to standard US English. 
             </p>
 
@@ -169,7 +171,7 @@ Prefix: en-US
                 of JavaScript, to help bring the uniqueness of Philadelphia
                 to programming.
             </p>
-            <pre style='padding-left: 8px; margin-left: 40px; width: 600px; column-count:1; border: solid 1px #999; background-color: #f9f9f9;' id='phillyscript-input' contenteditable="false">
+            <pre id='phillyscript-demo' contenteditable="false">
 boul Animal {
     new(legs) {
         youse.legs := legs || 2;
@@ -299,10 +301,6 @@ if (foo.legs === 2) {
 
             document.querySelector('#phillyscript-input').oninput = () => {
                 translateScriptToPs();
-            }
-
-            document.querySelector('#phillyscript-output').oninput = () => {
-                translateScriptToJs();
             }
         </script>
         <footer>

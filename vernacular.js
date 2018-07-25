@@ -42,6 +42,8 @@ const phillyVernacular = [
     'liberty bell',
     'crick',
     'ya mean',
+    'sup',
+    'dawg',
 ];
 
 const getRandomWord = () => {
