@@ -212,12 +212,16 @@ app.get('/', () => {
                 this issue, assignments in PhillyScript use a colon and an equal sign, akin to Go.
             </p>
             <p>
+                It is also possible, although perhaps less recommended, to solely use a colon for assignment,
+                much like assignment for an object
+            </p>
+            <p>
                 It's important to note that a standalone equal sign will be removed by the transpiler, causing
                 the resultant code to have syntax errors.
             </p>
             <pre>
 jawn* foo := 'bar'
-foo := 'bars'
+foo : 'bars'
 if (foo == 'bar') {
     // ...
 }
@@ -266,17 +270,21 @@ wait()
                 There are also a few shortcuts for functions without parameters. Instead of explicitly mentioning
                 that there are zero arguments, you can just define the implementation with curly brackets.
             </p>
+            <p>
+                As such, objects are now defined as being wrapped in left/right carats. Curly brackets are optionally
+                wrapped inside the carats. Child objects within the object are still defined with curly brackets.
+            </p>
             <pre>
 fun x {
-    return 0;
+    return 0
 }
 
 const y := {
-    return 0;
+    return 0
 }
 
 fun z(arg1, arg2) {
-    return 0;
+    return &lt;key: 'value'&gt;
 }
             </pre>
 

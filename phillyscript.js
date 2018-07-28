@@ -141,6 +141,8 @@ const compile = (input, toPs) => {
         code = code.replace(/^~(\w+)$/gm, '$1 = null');
         // foo := 'bar'  =>  foo = 'bar'
         code = code.replace(/(\w+)\s+:=\s+(.+)/gm, '$1 = $2');
+        // foo : 'bar'  =>  foo = 'bar'
+        code = code.replace(/(\w+)\s+:\s+(.+)/gm, '$1 = $2');
 
         // Classes
         // object ~ Class  =>  object instanceof Class
@@ -159,6 +161,11 @@ const compile = (input, toPs) => {
         code = code.replace(/fun (\w+)\s*\(([\w,\s]*)\) {/gm, 'function $1($2) {');
         // const a = { return 1; }  => const a = () => { return 1; }
         code = code.replace(/=\s*{/gm, '= () => {');
+
+        // Objects
+        // As functions can be simplified with { code }, 
+        // we wrap objects with carats, optionally with curly braces
+        code = code.replace(/<{?([\sa-zA-Z0-9:'"\-_]*)}?>/g, '{$1}');
 
         // Await
         code = code.replace(/([\w\(\)]+)#/gm, 'await $1');
