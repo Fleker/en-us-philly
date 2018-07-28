@@ -19,12 +19,12 @@ const compile = (input, toPs) => {
     // const a <=> JAWN a
     if (toPs) {
         code = code.replace(/^(\s*)var(\b)/gm, '$1jwn$2');
-        code = code.replace(/^(\s*)let(\b)/gm, '$1jawn$2');
-        code = code.replace(/^(\s*)const(\b)/gm, '$1jawn*$2');
+        code = code.replace(/^(\s*)const(\b)/gm, '$1jawn$2');
+        code = code.replace(/^(\s*)let(\b)/gm, '$1jawn*$2');
     } else {
         code = code.replace(/^(\s*)jwn\s*(\w+)\s*:?([=@])/gm, '$1var $2 $3');
-        code = code.replace(/^(\s*)jawn\*\s*(\w+)\s*:?([=@])/gm, '$1const $2 $3');
-        code = code.replace(/^(\s*)jawn\s*(\w+)\s*:?([=@])/gm, '$1let $2 $3');
+        code = code.replace(/^(\s*)jawn\*\s*(\w+)\s*:?([=@])/gm, '$1let $2 $3');
+        code = code.replace(/^(\s*)jawn\s*(\w+)\s*:?([=@])/gm, '$1const $2 $3');
         // code = code.replace(/^(\s*)JAWN\s*(\w+)\s*:?([=@])/gm, '$1const $2 $3');
     }
 
