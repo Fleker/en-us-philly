@@ -44,6 +44,12 @@ const phillyVernacular = [
     'ya mean',
     'sup',
     'dawg',
+    'aiite',
+    'center city',
+    'hotcake',
+    'pavement',
+    'scrapple',
+    'square',
 ];
 
 const getRandomWord = () => {
