@@ -404,6 +404,46 @@ jawn a := jawns(0,1,2,3,4,5)
 // Prints [3,4,5]
             </pre>
 
+            <h5 class='cozy'>For Loops</h5>
+            <p>
+                In addition to better ranges, for loops are now easier to setup with cleaner syntax, modeled
+                after for loops in <a href='https://www.mathworks.com/help/matlab/ref/for.html'>Matlab</a>.
+            </p>
+            <pre>
+for (jawn i = 0:5:100) {
+    :) ${i}
+}
+            </pre>
+            <p>
+                That code snippet should print out <em>i</em> between <em>0</em> and <em>100</em> in increments
+                <em>5</em>. The step value can be omitted if the step is <em>1</em>.
+            </p>
+            <p>
+                In order to specify a decrementing loop, where the value decrements by a set amount, the colons
+                will need to be replaced by semicolons.
+            </p>
+            <pre>
+for (jawn i = 100;5;0) {
+    :) ${i}
+}
+            </pre>
+            <p>
+                This is equivalent to <em>for (let i = 100; i >= 0; i -= 5)</em>. Like in the case above, if
+                the step is omitted, <em>-1</em> will be used by default.
+            </p>
+            <p>
+                If you want a value to increment to infinity, you can use three periods. This will result in
+                an infinite loop, so be sure to use a <em>break</em> condition.
+            </p>
+            <pre>
+for (jawn i = 0:...) {
+    :) ${i}
+    if (maybe) {
+        break;
+    }
+}
+            </pre>
+
             <h5 class='cozy'>Array arithmetic</h5>
             <p>
                 While you can easily add and multiply individual numbers, you can't do that easily to

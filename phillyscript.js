@@ -162,6 +162,20 @@ const compile = (input, toPs) => {
         // const a = { return 1; }  => const a = () => { return 1; }
         code = code.replace(/=\s*{/gm, '= () => {');
 
+        // For loops
+        // for (let i = 0:...)  =  for (let i = 0; i < Infintiy; i++)
+        code = code.replace(/for\s*\((.*):\.\.\.(.*)\)/gm, 'for ($1:Infinity$2)');
+        // for (let i = 0;...)  =  for (let i = 0; i >= -Infintiy; i--)
+        code = code.replace(/for\s*\((.*);\.\.\.(.*)\)/gm, 'for ($1:-Infinity$2)');
+        // for (let i = 0:1:5)  =>  for (let i = 0; i < 5; i+=1)
+        code = code.replace(/for\s*\(let\s*(.*)\s*=\s*(.*):(.*):(.*)\)/gm, 'for (let $1 = $2; $1 < $4; $1+=$3)');
+        // for (let i = 0:5)  =>  for (let i = 0; i < 5; i++)
+        code = code.replace(/for\s*\(let\s*(.*)\s*=\s*(.*):(.*)\)/gm, 'for (let $1 = $2; $1 < $3; $1++)');
+        // for (let i = 10;-1;5)  =>  for (let i = 10; i >= 5; i+=-1)
+        code = code.replace(/for\s*\(let\s*(.*)\s*=\s*(.*):(.*):(.*)\)/gm, 'for (let $1 = $2; $1 >= $4; $1+=$3)');
+        // for (let i = 10:5)  =>  for (let i = 10; i >= 5; i--)
+        code = code.replace(/for\s*\(let\s*(.*)\s*=\s*(.*):(.*)\)/gm, 'for (let $1 = $2; $1 >= $3; $1--)');
+
         // Objects
         // As functions can be simplified with { code }, 
         // we wrap objects with carats, optionally with curly braces
