@@ -159,13 +159,17 @@ footer {
     background-color: #f9f9f9;
 }
 
+#tool > pre {
+    margin-left: 60px;
+}
+
 @media (max-width: 800px) {
     body {
         overflow-x: hidden;
     }
     #philly-map {
-        margin-left: 20vw;
-        margin-top: -40px;
+        margin-left: 10vw;
+        margin-top: -20px;
         width: 300px;
     }
     #information, .c2 {
@@ -173,6 +177,7 @@ footer {
     }
     #overlay {
         margin-top: -120vh;
+        width: calc(100vw - 20vw);
     }
     #formbutton {
         left: 20px;
@@ -183,5 +188,13 @@ footer {
     #phillyscript-demo {
         margin-left: 10px;
         width: calc(100vw - 20px);
+    }
+    #tool > pre {
+        margin-left: 10px;
+        width: calc(100vw - 20px);
+    }
+    footer {
+        width: calc(100vw - 24px);
+        margin-left: 0px;
     }
 }
